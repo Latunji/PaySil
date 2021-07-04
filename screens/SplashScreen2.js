@@ -29,12 +29,11 @@ const SplashScreen2 = ({navigation}) => {
             <View style={styles.footer}>
             <Text style={styles.title}> Endless Payment Options! </Text>
             <Text style={styles.text}> Create wallet, Withdraw, Perform Fund Transfer, Get Cash, And Pay All Utility Bills. </Text>
-            <View style={styles.signIn}>
-            <TouchableOpacity onPress={pressHandler}>
-
-                    <Text style={styles.textSign}>Skip >></Text>
-            </TouchableOpacity>
-            </View>
+            {/* <View > */}
+              <TouchableOpacity style={styles.signIn} onPress={pressHandler}> 
+                  <Text style={styles.textSign}>Next</Text>
+              </TouchableOpacity>
+            {/* </View> */}
             </View>
        
         </View>

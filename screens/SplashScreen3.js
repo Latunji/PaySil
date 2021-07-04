@@ -30,12 +30,11 @@ const SplashScreen3 = ({navigation}) => {
               {/* <ImageBackground  source={require('../assets/images/PAYSIL.png')} style={styles.image}> */}
             <Text style={styles.title}> Instant Agent Settlement! </Text>
             <Text style={styles.text}> We Have Partnered With High Tech Companies And Banks To Ensure Our Agents Get Their Money On The Go.  </Text>
-            <View style={styles.signIn}>
-            <TouchableOpacity onPress={pressHandler}>
-
-                    <Text style={styles.textSign}>Skip >></Text>
+            {/* <View > */}
+            <TouchableOpacity style={styles.signIn} onPress={pressHandler}> 
+              <Text style={styles.textSign}>Next</Text>
             </TouchableOpacity>
-            </View>
+            {/* </View> */}
             {/* </ImageBackground> */}
             </View>
        

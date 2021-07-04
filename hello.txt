@@ -1,0 +1,243 @@
+
+            <Modal visible = {modalOpen} transparent = {true} animationType='slide'>
+                <View style={{ flex: 1 }}>
+                    <ScrollView style={{backgroundColor: '#ffffff', height:"100%", margin:50, padding:40, borderRadius:10, flex:1}}>
+                    
+                        <MaterialIcons
+                            name='close'
+                            size={15}
+                            style={styles.modalToggle}
+                            onPress={()=> setModalOpen(false)} />
+
+
+                        <Text style={modalStyles.text_footer}> First Name </Text>   
+                        <View style={modalStyles.action}>
+                        
+                            <TextInput
+                                placeholder="Enter your first name"
+                                style={modalStyles.textInput}
+                                autoCapitalize="none"
+                                onChangeText={(val)=>textInputChange2(val)}
+                            />
+                            {data.check_textInputChange2 ? 
+                            <Feather
+                                name="check-circle"
+                                color="#2074A4"
+                                size={20}
+                            />
+                            : 
+                            <Feather
+                                name="close"
+                                color="#FF0000"
+                                size={20}
+                            />}
+                        </View> 
+
+                        <Text style={modalStyles.text_footer, {marginTop: 5}}> Last Name </Text>   
+                        <View style={modalStyles.action}>
+                            <TextInput
+                                placeholder="Enter your last name"
+                                style={modalStyles.textInput}
+                                autoCapitalize="none"
+                                onChangeText={(val)=>textInputChange(val)}
+                            />
+                            {data.check_textInputChange ? 
+                            <Feather
+                                name="check-circle"
+                                color="#2074A4"
+                                size={20}
+                            />
+                            : 
+                            <Feather
+                                name="close"
+                                color="#FF0000"
+                                size={20}
+                            />}
+                        </View> 
+
+                        <Text style={modalStyles.text_footer, {marginTop: 5}}> Phone Number </Text>   
+                        <View style={modalStyles.action}>
+                            <TextInput
+                                placeholder="Enter your phone number"
+                                style={modalStyles.textInput}
+                                autoCapitalize="none"
+                                onChangeText={(val)=>numberInputChange(val)}
+                                keyboardType='numeric'
+                                maxLength={11}
+                            />
+                            {data.check_numberInputChange ? 
+                            <Feather
+                                name="check-circle"
+                                color="#2074A4"
+                                size={20}
+                            />
+                            : 
+                            <Feather
+                                name="close"
+                                color="#FF0000"
+                                size={20}
+                            />}
+                        </View> 
+
+
+                        <Text style={modalStyles.text_footer, {marginTop: 5}}> Date Of Birth </Text>   
+                        <View style={modalStyles.action}>
+                            {/* <TouchableOpacity onPress={showDatepicker}>
+                            <Feather
+                            name="calendar"
+                            color="#2074A4"
+                            size={20}
+                            />
+                            </TouchableOpacity> */}
+                        </View>
+                        
+                        <View style={{marginHorizontal: 1}}>
+                        <CustomDatePicker
+                                textStyle = {{
+                                    paddingVertical: 10,
+                                    paddingHorizontal: 10,
+                                    borderColor: 'gray',
+                                    borderRadius: 9,
+                                    borderWidth: 1,
+                                }}
+                                defaultDate="1985-01-01"
+                                onDateChange={(value) => console.log('Date Changed' +value)}
+                            />
+                        </View>
+                        {/* {show && (
+                        <DateTimePicker
+                            testID="dateTimePicker"
+                            value={date}
+                            mode={mode}
+                            is24Hour={true}
+                            display="default"
+                            onChange={onChange}
+                        />
+                        )} */}
+
+                        {/* <DatePicker
+                            date={date}
+                            onChange={onChange}
+                            onDateChange={setDate}
+                            /> */}
+                        
+                        <Text style={modalStyles.text_footer, {marginTop: 5}}> Gender </Text>   
+                        <Picker
+                            selectedValue = {selectedValue}
+                            onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+                            itemStyle={{
+                                justifyContent: 'flex-start',
+                                borderColor: 'gray'
+                            }}
+                            dropDownStyle={{backgroundColor: '#fafafa'}}>
+                            <Picker.Item label="Male" value="M" />
+                            <Picker.Item label="Female" value="F" />
+                        </Picker>
+            
+                        <Text style={modalStyles.text_footer, {marginTop: 5}}> Address </Text>   
+                        <View style={modalStyles.action}>
+                            <TextInput
+                                placeholder="Enter your address"
+                                style={modalStyles.textInput}
+                                autoCapitalize="none"
+                                onChangeText={(val)=>textInputChange3(val)}
+                            />
+                            {data.check_textInputChange3 ? 
+                            <Feather
+                                name="check-circle"
+                                color="#2074A4"
+                                size={20}
+                            />
+                            : 
+                            <Feather
+                                name="close"
+                                color="#FF0000"
+                                size={20}
+                            />}
+                        </View> 
+
+                        <Text style={modalStyles.text_footer, {marginTop: 5}}> City </Text>   
+                        <View style={modalStyles.action}>
+                            <TextInput
+                                placeholder="Enter your city"
+                                style={modalStyles.textInput}
+                                autoCapitalize="none"
+                                onChangeText={(val)=>textInputChange4(val)}
+                            />
+                            {data.check_textInputChange4 ? 
+                            <Feather
+                                name="check-circle"
+                                color="#2074A4"
+                                size={20}
+                            />
+                            : 
+                            <Feather
+                                name="close"
+                                color="#FF0000"
+                                size={20}
+                            />}
+                        </View> 
+
+                        <Text style={modalStyles.text_footer, {marginTop: 5}}> State </Text>   
+                        <View style={modalStyles.action}>
+                            <TextInput
+                                placeholder="Enter your state"
+                                style={modalStyles.textInput}
+                                autoCapitalize="none"
+                                onChangeText={(val)=>textInputChange5(val)}
+                            />
+                            {data.check_textInputChange5 ? 
+                            <Feather
+                                name="check-circle"
+                                color="#2074A4"
+                                size={20}
+                            />
+                            : 
+                            <Feather
+                                name="close"
+                                color="#FF0000"
+                                size={20}
+                            />}
+                        </View> 
+
+                        <Text style={modalStyles.text_footer, {marginTop: 5}}> OTP </Text>   
+                        <View style={modalStyles.action}>
+                            <TextInput
+                                placeholder="Enter customer's otp"
+                                style={modalStyles.textInput}
+                                autoCapitalize="none"
+                                onChangeText={(val)=>textInputChange6(val)}
+                                keyboardType='numeric'
+                            />
+                            {data.check_textInputChange6 ? 
+                            <Feather
+                                name="check-circle"
+                                color="#2074A4"
+                                size={20}
+                            />
+                            : 
+                            <Feather
+                                name="close"
+                                color="#FF0000"
+                                size={20}
+                            />}
+                        </View> 
+
+                        <View style={modalStyles.button}>
+                        <LinearGradient
+                        colors={['#2074A4', '#01ab9d']} 
+                        style={modalStyles.signIn}
+                        >
+                        <TouchableOpacity
+                            onPress={()=> submit()}>
+                            
+                            <Text style={modalStyles.textSign, {
+                                color: '#fff'
+                            }}>Register</Text>
+                            </TouchableOpacity>
+                        </LinearGradient>
+                        </View>
+
+                    </ScrollView> 
+                </View>
+            </Modal> 

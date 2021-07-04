@@ -15,12 +15,15 @@ const pressHandler = () => {
 
   return (
     <View style={styles.container}>
-        <TouchableOpacity onPress ={pressHandler}>
-       <Image source={paySilLogo}
-      style={{ width: 250, height: 160 }}></Image>
-      <Text style={styles.logoText}>...ready to meet your payment needs!</Text>
-      <StatusBar style="auto" />
-      </TouchableOpacity>
+        <StatusBar style="auto" />
+          <View >
+            <Image source={paySilLogo} style={{ width: 250, height: 160 }}></Image>
+            <Text style={styles.logoText}>...ready to meet your payment needs!</Text>        
+          </View>
+        
+        <TouchableOpacity onPress={pressHandler} style={styles.signIn}> 
+          <Text style={styles.textSign}>Next</Text>
+        </TouchableOpacity>
     </View>
   );
 }
@@ -33,5 +36,22 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
+  }, 
+  signIn: {
+      alignItems: 'flex-end',
+      marginTop: 80,
+      backgroundColor: '#2074A4',
+      width: 150,
+      height: 40,
+      marginLeft: 'auto',
+      right: '5%',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: 50,
+      flexDirection: 'row'
+    },
+    textSign: {
+        color: '#fff',
+        fontWeight: 'bold'
+    }
 });
