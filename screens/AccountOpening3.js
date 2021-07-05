@@ -75,31 +75,15 @@ const AccountOpening3  = ({navigation, route}) => {
         quality: 1,
         base64: true,
       }); 
-      // console.log(result);
       if (!result.cancelled) {
         setSignature(result.base64);
       }
     };
 
-    const submit = async ()  => { 
-
-        // const user_image = "file:///" + image.split("file:/").join("");
-        // const new_user_image_base64 = image; // await FileSystem.readAsStringAsync(user_image, { encoding: FileSystem.EncodingType.Base64 });
-        //                 //  { 
-        //                 //       uri : user_image,
-        //                 //       type: 'image/jpeg',
-        //                 //       name: user_image.split("/").pop()
-        //                 //   }  
-        // // const user_signature = "file:///" + signature.split("file:/").join("");
-        // const new_usersignature_base64 = signature; // await FileSystem.readAsStringAsync(user_signature, { encoding: FileSystem.EncodingType.Base64 });
-        // // var new_usersignature = { 
-        // //                       uri : user_signature,
-        // //                       type: 'image/jpeg',
-        // //                       name: user_signature.split("/").pop()
-        //                   }  
+    const submit = async ()  => {  
         var data_new = {
-            "agentCode": '013001', //userDetails.agentCode,
-            "bankCode": '000013', //data.bankCode,
+            "agentCode": userDetails.agentCode,
+            "bankCode": data.bankCode,
             "bvn": data.bankVerificationNumber,
             "firstName": data.firstName,
             "middleName": data.middleName,
@@ -117,8 +101,7 @@ const AccountOpening3  = ({navigation, route}) => {
             "accountOpeningBalance": Number(data.accountOpeningBalance)
         }          
         
-        // console.log(data_new); 
-        // return true;
+        console.log(data_new);  
         setSubmitting(true)
          var url = `${base_url}createAccount`;
          fetch(url, {
@@ -132,7 +115,7 @@ const AccountOpening3  = ({navigation, route}) => {
             .then((json) => {  
               // console.log(json);
               if(json.responseCode == '00'){
-                  alert('Customer Creation Successful!');
+                  alert('Customer Creation Successful! Your account number is: '+json.accountNumber);
                   // navigation.navigate('Login');
               }else{
                 alert(json.responseDescription)
@@ -148,8 +131,7 @@ const AccountOpening3  = ({navigation, route}) => {
               // }
             })
             .catch(err => console.log('Error: ', err))
-            .finally(err => setSubmitting(false));
-        
+            .finally(err => setSubmitting(false)); 
     }   
 
     if(isLoading){

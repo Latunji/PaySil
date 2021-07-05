@@ -111,14 +111,21 @@ const Dashboard = ({navigation}) => {
                     }}> 
                     Hello { userDetails.fullname }!
                 </Text>
-                <Text  style={{
-                        marginTop: 10,
-                        fontSize: 14,
-                        color: "#000",
-                        alignSelf: 'flex-end',
-                        fontStyle: 'italic',
-                        right: 10,
-                    }}>Your total opening balance: {totalOpeningBalance}</Text>
+                <View style={{ widht: '100%', flexDirection: 'row', justifyContent: 'space-between' }}> 
+                    <Text  style={{
+                            marginTop: 10,
+                            fontSize: 14,
+                            color: "#000",
+                            alignSelf: 'flex-end',  
+                        }}>Agent Code: { userDetails.agentCode }</Text>
+                    <Text  style={{
+                            marginTop: 10,
+                            fontSize: 14,
+                            color: "#000",
+                            alignSelf: 'flex-end',
+                            fontStyle: 'italic', 
+                        }}>Your total opening balance: {totalOpeningBalance}</Text>
+                </View>
             
                 <View style={{ paddingHorizontal: deviceWidth * 0.05}}> 
                     <TouchableOpacity style={ styles.card } onPress={()=> navigation.navigate('AccountOpening1')}>

@@ -85,12 +85,20 @@ const AllRegistredMember = ({navigation}) => {
                     All registered member
                 </Text>    
             </View> 
+            <ScrollView style={{ width: '100%',}}>
+                {
+                    allRegistredMember.length > 0
+                    ?    
+                        allRegistredMember.map((item, index) => ( 
+                            <View style={styles.listCon} key={index}>
+                                <Text style={styles.listConText}>{item.fullname }</Text>
+                            </View>
+                        ))  
+                    :
+                        <Text style={{ fontSize: 20, alignSelf: 'center', marginTop: '50%', fontStyle: 'italic' }}>No record found</Text>
 
-            <ScrollView style={{ width: '100%', height: '100%' }}>
-                <View style={styles.listCon}>
-                    <Text style={styles.listConText}>Adebayo Adekola</Text>
-                </View>
-            </ScrollView>     
+                }
+            </ScrollView>  
 
         </View>   
     )

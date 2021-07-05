@@ -22,7 +22,7 @@ const AccountOpening2  = ({navigation, route}) => {
     const [isLoading, setLoading] = React.useState(false); 
     const [states, setStates] = React.useState([]);
     const [ loadingLGA, setLoadingLGA ] = React.useState(false); 
-
+    const [ myState, setMyState ] = React.useState(''); 
     const [lgas, setLgas] = React.useState([]); 
 
     const [data, setData] = React.useState(route.params.paramKey); 
@@ -170,8 +170,8 @@ const AccountOpening2  = ({navigation, route}) => {
 
                     <Text style={styles.text_footer, {marginTop: 5}}> State </Text>  
                     <Picker
-                        // selectedValue={states}
-                        onValueChange={(itemValue, itemIndex) => getLga(itemValue) }
+                        selectedValue={myState}
+                        onValueChange={(itemValue, itemIndex) =>{ getLga(itemValue); setMyState(itemValue);  } }
                         itemStyle={{
                             justifyContent: 'flex-start', 
                             borderColor: 'white',
